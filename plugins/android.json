@@ -1,0 +1,21 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-android-permissions": {
+            "PACKAGE_NAME": "io.github.cedced19.lamethodej"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "io.github.cedced19.lamethodej"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "io.github.cedced19.lamethodej"
+        }
+    },
+    "dependent_plugins": {}
+}

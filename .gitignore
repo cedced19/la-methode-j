@@ -1,0 +1,8 @@
+platforms/android/*
+plugins/cordova-plugin-whitelist/*
+plugins/cordova-plugin-device/*
+plugins/cordova-plugin-android-permissions/*
+plugins/cordova-plugin-statusbar/*
+node_modules/
+sweet-alarm-activator.keystore
+build.json
