@@ -22,5 +22,14 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "com.plugin.datepicker": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/michaelfranz89/cordova-plugin-datepicker",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

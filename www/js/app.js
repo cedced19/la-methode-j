@@ -14,14 +14,22 @@ phonon.options({
 
 var language = localStorage.getItem('language') || (window.navigator.userLanguage || window.navigator.language).split('-')[0];
 phonon.updateLocale(language);
+
+var dayToHour = [9, 16, 16, 13, 16, 16, 9];
 var addDays = function (days) {
     var dat = new Date();
-    var dayToHour = [9, 16, 16, 13, 16, 16, 9];
     dat.setDate(dat.getDate() + days);
     dat.setHours(dayToHour[dat.getDay()]);
     dat.setMinutes(0);
     return dat;
 };
+var numberOfMonths = function (date1, date2) {
+    var number;
+    number= (date2.getFullYear() - date1.getFullYear()) * 12;
+    number-= date1.getMonth() + 1;
+    number+= date2.getMonth() +1;
+    return number <= 0 ? 0 : number;
+}
 
 phonon.navigator().on({
     page: 'home',
@@ -94,19 +102,41 @@ phonon.navigator().on({
         var submitBtn = document.getElementById('submit-btn');
 
         submitBtn.on('click', function() {
-            var lessons = localStorage.get('lessons') || [];
+            var lessons = JSON.parse(localStorage.getItem('lessons')) || [];
             var days = [3, 10];
 
-            var lesson = {
-              name: name,
-              today: new Date(),
-              days: days.map(addDays),
-            };
+            var nextJune = new Date();
+            if (nextJune.getMonth() >= 5) {
+              nextJune.setFullYear(nextJune.getFullYear() + 1);
+            }
+            nextJune.setMonth(5);
+            nextJune.setDate(1);
+            nextJune.setHours(dayToHour[nextJune.getDay()]);
+            nextJune.setMinutes(0);
 
-            lessons.push(lesson);
-            localStorage.set('lessons', lessons);
-            name.value = '';
-            phonon.navigator().changePage('home');
+            // TODO: Check if name is empty and ask for a date
+            datePicker.show({
+              date: nextJune,
+              mode: 'date'
+            }, function(endDate){
+
+              for (var i = 0; i < numberOfMonths((new Date), endDate); i++) {
+                days.push((i+1) * 30);
+              }
+
+              var lesson = {
+                name: name.value,
+                today: new Date(),
+                days: days.map(addDays),
+                end: endDate
+              };
+
+              // TODO: Remove last date if it is after the end date
+              lessons.push(lesson);
+              localStorage.setItem('lessons', JSON.stringify(lessons));
+              name.value = '';
+              phonon.navigator().changePage('home');
+           });
         });
     });
 

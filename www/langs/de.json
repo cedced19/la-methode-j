@@ -13,5 +13,7 @@
   "question_sure": "Bist du sicher?",
   "settings": "Die Parameter",
   "request_permission": "Erlauben die Anwendung",
-  "submit": "Unterwerfen"
+  "submit": "Unterwerfen",
+  "lesson_name": "Lektions Name",
+  "no_lesson": "Es gibt noch keine Lektion."
 }

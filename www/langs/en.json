@@ -13,5 +13,7 @@
   "question_sure": "Are you sure?",
   "settings": "Settings",
   "request_permission": "Allow the application",
-  "submit": "Submit"
+  "submit": "Submit",
+  "lesson_name": "Lesson name",
+  "no_lesson": "You have no lesson yet."
 }

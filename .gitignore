@@ -3,6 +3,7 @@ plugins/cordova-plugin-whitelist/*
 plugins/cordova-plugin-device/*
 plugins/cordova-plugin-android-permissions/*
 plugins/cordova-plugin-statusbar/*
+plugins/com.plugin.datepicker/*
 node_modules/
 sweet-alarm-activator.keystore
 build.json

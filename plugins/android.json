@@ -15,6 +15,9 @@
         },
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "io.github.cedced19.lamethodej"
+        },
+        "com.plugin.datepicker": {
+            "PACKAGE_NAME": "io.github.cedced19.lamethodej"
         }
     },
     "dependent_plugins": {}
