@@ -21,10 +21,19 @@
         },
         "cordova-plugin-calendar": {
             "PACKAGE_NAME": "io.github.cedced19.lamethodej"
+        },
+        "de.appplant.cordova.plugin.local-notification": {
+            "PACKAGE_NAME": "io.github.cedced19.lamethodej"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
+            "PACKAGE_NAME": "io.github.cedced19.lamethodej"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "io.github.cedced19.lamethodej"
+        },
+        "cordova-plugin-app-event": {
             "PACKAGE_NAME": "io.github.cedced19.lamethodej"
         }
     }

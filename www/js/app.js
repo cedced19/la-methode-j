@@ -49,6 +49,14 @@ var getPermission = function(cb) {
         }
     }, null);
 };
+var randomString = function() {
+    var chars = '0123456789'.split('');
+    var str = '';
+    for (var i = 0; i < 10; i++) {
+        str += chars[Math.floor(Math.random() * chars.length)];
+    }
+    return str;
+}
 
 phonon.navigator().on({
     page: 'home',
@@ -156,25 +164,36 @@ phonon.navigator().on({
                                 name: name.value,
                                 today: new Date(),
                                 days: days.map(addDays),
-                                end: endDate
+                                end: endDate,
+                                ids: []
                             };
 
                             if (lesson.days[lesson.days.length - 1] > endDate) {
                                 lesson.days.splice(lesson.days.length - 1);
                             }
 
-                            lessons.push(lesson);
-                            localStorage.setItem('lessons', JSON.stringify(lessons));
                             name.value = '';
 
                             var title = values['learn'] + ' "' + lesson.name + '"';
                             lesson.days.forEach(function(date, index) {
                                 var options = {
                                     start: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0, 0),
-                                    end: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1, 0, 0, 0, 0, 0)
+                                    end: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1, 0, 0, 0, 0, 0),
+                                    id: randomString()
                                 };
                                 window.plugins.calendar.createEventWithOptions(title, '', 'J' + days[index], options.start, options.end, {}, function() {}, function() {});
+                                cordova.plugins.notification.local.schedule({
+                                    title: title,
+                                    text: 'J' + days[index],
+                                    id: options.id,
+                                    at: date,
+                                    icon: 'file://res/icons/icon.png'
+                                });
+                                lesson.ids.push(options.id);
                             });
+
+                            lessons.push(lesson);
+                            localStorage.setItem('lessons', JSON.stringify(lessons));
 
                             phonon.navigator().changePage('home');
                         });

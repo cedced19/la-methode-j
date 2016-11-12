@@ -6,6 +6,8 @@ plugins/cordova-plugin-statusbar/*
 plugins/cordova-plugin-calendar/*
 plugins/cordova-plugin-compat/*
 plugins/com.plugin.datepicker/*
+plugins/de.appplant.cordova.plugin.local-notification/*
+plugins/cordova-plugin-app-event/*
 node_modules/
-sweet-alarm-activator.keystore
+la-methode-j.keystore
 build.json
