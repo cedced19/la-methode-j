@@ -19,5 +19,6 @@
   "give_end_date": "Donnez, s'il vous plait, la date de fin des rappels.",
   "available_lesson": "Leçons disponibles",
   "add_lesson": "Ajouter une leçon",
-  "empty_name": "Vous n'avez pas définit de nom."
+  "empty_name": "Vous n'avez pas définit de nom.",
+  "learn": "Apprendre"
 }

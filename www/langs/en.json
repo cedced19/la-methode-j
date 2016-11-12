@@ -19,5 +19,6 @@
   "give_end_date": "Please, give the end date of the reminders.",
   "available_lesson": "Available lesson",
   "add_lesson": "Add a lesson",
-  "empty_name": "You haven't set name."
+  "empty_name": "You haven't set name.",
+  "learn": "Learn"
 }

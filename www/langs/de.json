@@ -16,8 +16,9 @@
   "submit": "Unterwerfen",
   "lesson_name": "Lektions Name",
   "no_lesson": "Es gibt noch keine Lektion.",
-  "give_end_date": "",
-  "available_lesson": "",
-  "add_lesson": "",
-  "empty_name": ""
+  "give_end_date": "Bitte, gib das Enddatum der Mahnung an",
+  "available_lesson": "Vorhandenen Lektionen",
+  "add_lesson": "Eine Lektion hinzufügen",
+  "empty_name": "Sie haben nicht ein Name gegeben.",
+  "learn": "Lernen"
 }
