@@ -15,5 +15,9 @@
   "request_permission": "Allow the application",
   "submit": "Submit",
   "lesson_name": "Lesson name",
-  "no_lesson": "You have no lesson yet."
+  "no_lesson": "You have no lesson yet.",
+  "give_end_date": "Please, give the end date of the reminders.",
+  "available_lesson": "Available lesson",
+  "add_lesson": "Add a lesson",
+  "empty_name": "You haven't set name."
 }

@@ -63,7 +63,7 @@ phonon.navigator().on({
                           var confirm = phonon.confirm(values['question_sure'], values['warning'], true, values['ok'], values['cancel']);
                           confirm.on('confirm', function() {
                               lessons.splice(index, 1);
-                              localStorage.setItem('alarms', JSON.stringify(lessons));
+                              localStorage.setItem('lessons', JSON.stringify(lessons));
                               ul.removeChild(li);
                           });
                       });
@@ -73,7 +73,7 @@ phonon.navigator().on({
 
                   // Select lesson button
                   var selectBtn = document.createElement('a');
-                  selectBtn.appendChild(document.createTextNode(alarm.name));
+                  selectBtn.appendChild(document.createTextNode(lesson.name));
                   selectBtn.on('click', function() {
 
                   });
@@ -102,41 +102,53 @@ phonon.navigator().on({
         var submitBtn = document.getElementById('submit-btn');
 
         submitBtn.on('click', function() {
+            if (name.value == '') {
+              return phonon.i18n().get(['empty_name', 'warning', 'ok'], function(values) {
+                  phonon.alert(values['empty_name'], values['warning'], false, values['ok']);
+              });
+            }
+
             var lessons = JSON.parse(localStorage.getItem('lessons')) || [];
             var days = [3, 10];
-
             var nextJune = new Date();
             if (nextJune.getMonth() >= 5) {
               nextJune.setFullYear(nextJune.getFullYear() + 1);
             }
             nextJune.setMonth(5);
             nextJune.setDate(1);
-            nextJune.setHours(dayToHour[nextJune.getDay()]);
-            nextJune.setMinutes(0);
 
-            // TODO: Check if name is empty and ask for a date
-            datePicker.show({
-              date: nextJune,
-              mode: 'date'
-            }, function(endDate){
+            phonon.i18n().get(['give_end_date', 'information', 'ok'], function(values) {
+                var alert = phonon.alert(values['give_end_date'], values['information'], false, values['ok']);
+                alert.on('confirm', function () {
+                    datePicker.show({
+                      date: nextJune,
+                      mode: 'date'
+                    }, function(endDate){
+                      for (var i = 0; i < numberOfMonths((new Date), endDate); i++) {
+                        days.push((i+1) * 30);
+                      }
 
-              for (var i = 0; i < numberOfMonths((new Date), endDate); i++) {
-                days.push((i+1) * 30);
-              }
+                      endDate.setHours(dayToHour[endDate.getDay()]);
+                      endDate.setMinutes(0);
 
-              var lesson = {
-                name: name.value,
-                today: new Date(),
-                days: days.map(addDays),
-                end: endDate
-              };
+                      var lesson = {
+                        name: name.value,
+                        today: new Date(),
+                        days: days.map(addDays),
+                        end: endDate
+                      };
 
-              // TODO: Remove last date if it is after the end date
-              lessons.push(lesson);
-              localStorage.setItem('lessons', JSON.stringify(lessons));
-              name.value = '';
-              phonon.navigator().changePage('home');
-           });
+                      if (lesson.days[lesson.days.length-1] >  endDate) {
+                        lesson.days.splice(lesson.days.length-1);
+                      }
+                      
+                      lessons.push(lesson);
+                      localStorage.setItem('lessons', JSON.stringify(lessons));
+                      name.value = '';
+                      phonon.navigator().changePage('home');
+                   });
+                });
+            });
         });
     });
 

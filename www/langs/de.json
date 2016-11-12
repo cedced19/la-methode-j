@@ -15,5 +15,9 @@
   "request_permission": "Erlauben die Anwendung",
   "submit": "Unterwerfen",
   "lesson_name": "Lektions Name",
-  "no_lesson": "Es gibt noch keine Lektion."
+  "no_lesson": "Es gibt noch keine Lektion.",
+  "give_end_date": "",
+  "available_lesson": "",
+  "add_lesson": "",
+  "empty_name": ""
 }
