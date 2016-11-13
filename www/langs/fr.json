@@ -20,5 +20,7 @@
   "available_lesson": "Leçons disponibles",
   "add_lesson": "Ajouter une leçon",
   "empty_name": "Vous n'avez pas définit de nom.",
-  "learn": "Apprendre"
+  "learn": "Apprendre",
+  "not_allowed_to_write_calendar": "Vous n'avez pas donné l'autorisation d'écrire dans le calendrier.",
+  "lesson_deleted": "La leçon vient d'être supprimé de l'application, cependant les évenements dans le calendrier n'ont pas été supprimé."
 }

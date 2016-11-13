@@ -20,5 +20,7 @@
   "available_lesson": "Vorhandenen Lektionen",
   "add_lesson": "Eine Lektion hinzufügen",
   "empty_name": "Sie haben nicht ein Name gegeben.",
-  "learn": "Lernen"
+  "learn": "Lernen",
+  "not_allowed_to_write_calendar": "Sie haben nicht die Erlaubnis, den Kalender zu schreiben gegeben.",
+  "lesson_deleted": "Die Lektion wurde von der Anwendersoftware entfernt, aber die Ereignisse im Kalender waren nicht entfernt."
 }

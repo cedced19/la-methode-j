@@ -56,7 +56,7 @@ var randomString = function() {
         str += chars[Math.floor(Math.random() * chars.length)];
     }
     return str;
-}
+};
 
 phonon.navigator().on({
     page: 'home',
@@ -67,6 +67,7 @@ phonon.navigator().on({
 
     activity.onReady(function() {
         var ul = document.getElementById('list');
+        var noLessonDiv = document.getElementById('no-lesson');
         var lessons = JSON.parse(localStorage.getItem('lessons'));
 
         while (ul.firstChild) {
@@ -74,7 +75,12 @@ phonon.navigator().on({
         }
 
         if (Array.isArray(lessons)) {
-            document.getElementById('no-lesson').style.display = 'none';
+            noLessonDiv.style.display = 'none';
+            ul.style.display = 'block';
+            if (!lessons.length) {
+                noLessonDiv.style.display = 'block';
+                ul.style.display = 'none';
+            }
             phonon.i18n().get('available_lesson', function(value) {
                 var title = document.createElement('li');
                 title.appendChild(document.createTextNode(value));
@@ -89,9 +95,18 @@ phonon.navigator().on({
                         phonon.i18n().get(['question_sure', 'warning', 'ok', 'cancel'], function(values) {
                             var confirm = phonon.confirm(values['question_sure'], values['warning'], true, values['ok'], values['cancel']);
                             confirm.on('confirm', function() {
+                                cordova.plugins.notification.local.cancel(lesson.ids, function() {
+                                    phonon.i18n().get(['lesson_deleted', 'information', 'ok'], function(values) {
+                                        phonon.alert(values['lesson_deleted'], values['information'], false, values['ok']);
+                                    });
+                                });
                                 lessons.splice(index, 1);
                                 localStorage.setItem('lessons', JSON.stringify(lessons));
                                 ul.removeChild(li);
+                                if (!lessons.length) {
+                                    noLessonDiv.style.display = 'block';
+                                    ul.style.display = 'none';
+                                }
                             });
                         });
                     });
@@ -101,9 +116,6 @@ phonon.navigator().on({
                     // Select lesson button
                     var selectBtn = document.createElement('a');
                     selectBtn.appendChild(document.createTextNode(lesson.name));
-                    selectBtn.on('click', function() {
-
-                    });
                     selectBtn.className += 'padded-list';
                     li.appendChild(selectBtn);
 
@@ -111,7 +123,8 @@ phonon.navigator().on({
                 });
             });
         } else {
-            document.getElementById('no-lesson').style.display = 'block';
+            noLessonDiv.style.display = 'block';
+            ul.style.display = 'none';
         }
 
     });

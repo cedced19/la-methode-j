@@ -20,5 +20,7 @@
   "available_lesson": "Available lesson",
   "add_lesson": "Add a lesson",
   "empty_name": "You haven't set name.",
-  "learn": "Learn"
+  "learn": "Learn",
+  "not_allowed_to_write_calendar": "You have not given permission to write in the calendar.",
+  "lesson_deleted": "The lesson has just been deleted, but the events in the calendar haven't been deleted."
 }
