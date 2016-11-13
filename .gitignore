@@ -8,6 +8,7 @@ plugins/cordova-plugin-compat/*
 plugins/com.plugin.datepicker/*
 plugins/de.appplant.cordova.plugin.local-notification/*
 plugins/cordova-plugin-app-event/*
+plugins/cordova-plugin-keyboard/*
 node_modules/
 la-methode-j.keystore
 build.json

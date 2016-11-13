@@ -34,4 +34,5 @@
     <plugin name="com.plugin.datepicker" spec="https://github.com/michaelfranz89/cordova-plugin-datepicker" />
     <plugin name="cordova-plugin-calendar" spec="~4.5.5" />
     <plugin name="de.appplant.cordova.plugin.local-notification" spec="https://github.com/katzer/cordova-plugin-local-notifications" />
+    <plugin name="cordova-plugin-keyboard" spec="~1.1.4" />
 </widget>

@@ -96,9 +96,7 @@ phonon.navigator().on({
                             var confirm = phonon.confirm(values['question_sure'], values['warning'], true, values['ok'], values['cancel']);
                             confirm.on('confirm', function() {
                                 cordova.plugins.notification.local.cancel(lesson.ids, function() {
-                                    phonon.i18n().get(['lesson_deleted', 'information', 'ok'], function(values) {
-                                        phonon.alert(values['lesson_deleted'], values['information'], false, values['ok']);
-                                    });
+                                    alertMessage('lesson_deleted', 'information');
                                 });
                                 lessons.splice(index, 1);
                                 localStorage.setItem('lessons', JSON.stringify(lessons));
@@ -143,9 +141,7 @@ phonon.navigator().on({
 
         submitBtn.on('click', function() {
             if (name.value == '') {
-                return phonon.i18n().get(['empty_name', 'warning', 'ok'], function(values) {
-                    phonon.alert(values['empty_name'], values['warning'], false, values['ok']);
-                });
+                return alertMessage('empty_name', 'warning');
             }
 
             var lessons = JSON.parse(localStorage.getItem('lessons')) || [];
@@ -159,6 +155,7 @@ phonon.navigator().on({
 
             getPermission(function() {
                 phonon.i18n().get(['give_end_date', 'information', 'ok', 'learn'], function(values) {
+                    Keyboard.hide();
                     var alert = phonon.alert(values['give_end_date'], values['information'], false, values['ok']);
                     alert.on('confirm', function() {
 
@@ -236,9 +233,7 @@ phonon.navigator().on({
                     break;
                 }
             }
-            phonon.i18n().get(['language_confirm', 'information', 'ok'], function(values) {
-                phonon.alert(values.language_confirm, values.information, false, values.ok);
-            });
+            alertMessage('language_confirm', 'information');
         });
     });
 
