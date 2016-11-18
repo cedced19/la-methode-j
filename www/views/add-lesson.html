@@ -8,9 +8,13 @@
     <div class="content">
         <div class="padded-full">
             <h1 data-i18n="text: add_lesson"></h1>
-            <div class="input-wrapper padded-bottom">
+            <div class="input-wrapper">
               <input class="with-label" type="text" id="name">
               <label class="floating-label" for="name" data-i18n="text: lesson_name"></label>
+            </div>
+            <div class="input-wrapper padded-bottom">
+              <input class="with-label" type="number" id="frequency" value="30">
+              <label class="floating-label" for="frequency" data-i18n="text: reminders_frequency"></label>
             </div>
           	<button class="btn fit-parent primary" data-i18n="text: submit" id="submit-btn"></button>
         </div>

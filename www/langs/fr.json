@@ -15,6 +15,7 @@
   "request_permission": "Autoriser l'application",
   "submit": "Soumettre",
   "lesson_name": "Nom de la leçon",
+  "reminders_frequency": "Fréquence des rappels",
   "no_lesson": "Vous n'avez pas encore de leçon.",
   "give_end_date": "Donnez, s'il vous plait, la date de fin des rappels.",
   "available_lesson": "Leçons disponibles",
@@ -22,5 +23,6 @@
   "empty_name": "Vous n'avez pas définit de nom.",
   "learn": "Apprendre",
   "not_allowed_to_write_calendar": "Vous n'avez pas donné l'autorisation d'écrire dans le calendrier.",
-  "lesson_deleted": "La leçon vient d'être supprimé de l'application, cependant les évenements dans le calendrier n'ont pas été supprimé."
+  "lesson_deleted": "La leçon vient d'être supprimé de l'application, cependant les évenements dans le calendrier n'ont pas été supprimé.",
+  "no_frequency_set": "Vous n'avez pas définit la fréquence des rappels."
 }

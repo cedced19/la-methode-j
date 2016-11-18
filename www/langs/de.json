@@ -15,12 +15,14 @@
   "request_permission": "Erlauben die Anwendung",
   "submit": "Unterwerfen",
   "lesson_name": "Lektions Name",
+  "reminders_frequency": "Häufigkeit von die Mahnungen",
   "no_lesson": "Es gibt noch keine Lektion.",
-  "give_end_date": "Bitte, gib das Enddatum der Mahnung an",
+  "give_end_date": "Bitte, gib das Enddatum die Mahnungen an",
   "available_lesson": "Vorhandenen Lektionen",
   "add_lesson": "Eine Lektion hinzufügen",
   "empty_name": "Sie haben nicht ein Name gegeben.",
   "learn": "Lernen",
   "not_allowed_to_write_calendar": "Sie haben nicht die Erlaubnis, den Kalender zu schreiben gegeben.",
-  "lesson_deleted": "Die Lektion wurde von der Anwendersoftware entfernt, aber die Ereignisse im Kalender waren nicht entfernt."
+  "lesson_deleted": "Die Lektion wurde von der Anwendersoftware entfernt, aber die Ereignisse im Kalender waren nicht entfernt.",
+  "no_frequency_set": "Sie haben nicht die Häufigkeit von die Mahnungen gegeben."
 }

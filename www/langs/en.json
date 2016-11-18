@@ -15,6 +15,7 @@
   "request_permission": "Allow the application",
   "submit": "Submit",
   "lesson_name": "Lesson name",
+  "reminders_frequency": "Reminders' frequency",
   "no_lesson": "You have no lesson yet.",
   "give_end_date": "Please, give the end date of the reminders.",
   "available_lesson": "Available lesson",
@@ -22,5 +23,6 @@
   "empty_name": "You haven't set name.",
   "learn": "Learn",
   "not_allowed_to_write_calendar": "You have not given permission to write in the calendar.",
-  "lesson_deleted": "The lesson has just been deleted, but the events in the calendar haven't been deleted."
+  "lesson_deleted": "The lesson has just been deleted, but the events in the calendar haven't been deleted.",
+  "no_frequency_set": "You haven't set the frequency of the reminders."
 }

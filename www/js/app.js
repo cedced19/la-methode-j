@@ -30,6 +30,9 @@ var numberOfMonths = function(date1, date2) {
     number += date2.getMonth() + 1;
     return number <= 0 ? 0 : number;
 };
+var numberOfDays = function(first, second) {
+    return Math.round((second - first) / (1000 * 60 * 60 * 24));
+}
 var alertMessage = function(sentence, type) {
     phonon.i18n().get([sentence, type, 'ok'], function(values) {
         phonon.alert(values[sentence], values[type], false, values['ok']);
@@ -137,7 +140,9 @@ phonon.navigator().on({
 
     activity.onCreate(function() {
         var name = document.getElementById('name');
+        var frequency = document.getElementById('frequency');
         var submitBtn = document.getElementById('submit-btn');
+        frequency.value = '30';
 
         submitBtn.on('click', function() {
             if (name.value == '') {
@@ -145,13 +150,17 @@ phonon.navigator().on({
             }
 
             var lessons = JSON.parse(localStorage.getItem('lessons')) || [];
-            var days = [3, 10];
+            var days = [];
             var nextJune = new Date();
             if (nextJune.getMonth() >= 5) {
                 nextJune.setFullYear(nextJune.getFullYear() + 1);
             }
             nextJune.setMonth(5);
             nextJune.setDate(1);
+
+            if (frequency.value == '' || isNaN(frequency.value)) {
+                return alertMessage('no_frequency_set', 'error');
+            }
 
             getPermission(function() {
                 phonon.i18n().get(['give_end_date', 'information', 'ok', 'learn'], function(values) {
@@ -163,8 +172,16 @@ phonon.navigator().on({
                             date: nextJune,
                             mode: 'date'
                         }, function(endDate) {
-                            for (var i = 0; i < numberOfMonths((new Date), endDate); i++) {
-                                days.push((i + 1) * 30);
+
+                            if (frequency.value == 30) {
+                                days = [3, 10];
+                                for (var i = 0; i < numberOfMonths((new Date), endDate); i++) {
+                                    days.push((i + 1) * 30);
+                                }
+                            } else {
+                                for (var i = +frequency.value; i < numberOfDays((new Date), endDate); i = +i + +frequency.value) {
+                                    days.push(i);
+                                }
                             }
 
                             endDate.setHours(dayToHour[endDate.getDay()]);
