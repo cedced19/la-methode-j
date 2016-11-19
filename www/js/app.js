@@ -23,13 +23,6 @@ var addDays = function(days) {
     dat.setMinutes(0);
     return dat;
 };
-var numberOfMonths = function(date1, date2) {
-    var number;
-    number = (date2.getFullYear() - date1.getFullYear()) * 12;
-    number -= date1.getMonth() + 1;
-    number += date2.getMonth() + 1;
-    return number <= 0 ? 0 : number;
-};
 var numberOfDays = function(first, second) {
     return Math.round((second - first) / (1000 * 60 * 60 * 24));
 }
@@ -173,15 +166,12 @@ phonon.navigator().on({
                             mode: 'date'
                         }, function(endDate) {
 
-                            if (frequency.value == 30) {
+                            if (frequency.value >= 12) {
                                 days = [3, 10];
-                                for (var i = 0; i < numberOfMonths((new Date), endDate); i++) {
-                                    days.push((i + 1) * 30);
-                                }
-                            } else {
-                                for (var i = +frequency.value; i < numberOfDays((new Date), endDate); i = +i + +frequency.value) {
-                                    days.push(i);
-                                }
+                            }
+
+                            for (var i = +frequency.value; i <= numberOfDays((new Date), endDate); i = +i + +frequency.value) {
+                                days.push(i);
                             }
 
                             endDate.setHours(dayToHour[endDate.getDay()]);
