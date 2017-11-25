@@ -53,6 +53,14 @@ var randomString = function() {
     }
     return str;
 };
+var containsNan = function(array) {
+  for (var k in array) {
+    if (isNaN(array[k])) {
+      return true;
+    }
+  }
+  return false;
+};
 
 phonon.navigator().on({
     page: 'home',
@@ -134,16 +142,25 @@ phonon.navigator().on({
     activity.onCreate(function() {
         var name = document.getElementById('name');
         var frequency = document.getElementById('frequency');
+        var daysInput = document.getElementById('days');
         var submitBtn = document.getElementById('submit-btn');
         frequency.value = '30';
 
+        var days = [3, 10];
+        daysInput.value = days.join();
         submitBtn.on('click', function() {
+
             if (name.value == '') {
                 return alertMessage('empty_name', 'warning');
             }
 
+            days = daysInput.value.split(',').map(Number);
+            if (containsNan(days)) {
+                return alertMessage('bad_reminder_days', 'warning');
+            }
+
             var lessons = JSON.parse(localStorage.getItem('lessons')) || [];
-            var days = [];
+
             var nextJune = new Date();
             if (nextJune.getMonth() >= 5) {
                 nextJune.setFullYear(nextJune.getFullYear() + 1);
@@ -165,10 +182,6 @@ phonon.navigator().on({
                             date: nextJune,
                             mode: 'date'
                         }, function(endDate) {
-
-                            if (frequency.value >= 12) {
-                                days = [3, 10];
-                            }
 
                             for (var i = +frequency.value; i <= numberOfDays((new Date), endDate); i = +i + +frequency.value) {
                                 days.push(i);

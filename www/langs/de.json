@@ -16,6 +16,7 @@
   "submit": "Unterwerfen",
   "lesson_name": "Lektions Name",
   "reminders_frequency": "Häufigkeit von die Mahnungen",
+  "reminder_days": "Zusätzliche Mahnungtage",
   "no_lesson": "Es gibt noch keine Lektion.",
   "give_end_date": "Bitte, gib das Enddatum die Mahnungen an",
   "available_lesson": "Vorhandenen Lektionen",
@@ -24,5 +25,6 @@
   "learn": "Lernen",
   "not_allowed_to_write_calendar": "Sie haben nicht die Erlaubnis, den Kalender zu schreiben gegeben.",
   "lesson_deleted": "Die Lektion wurde von der Anwendersoftware entfernt, aber die Ereignisse im Kalender waren nicht entfernt.",
-  "no_frequency_set": "Sie haben nicht die Häufigkeit von die Mahnungen gegeben."
+  "no_frequency_set": "Sie haben nicht die Häufigkeit von die Mahnungen gegeben.",
+  "bad_reminder_days": "Sie haben einen falschen Wert für die Mahnungtage eingegeben. Sie müssen die Nummer mit Komma trennen."
 }
