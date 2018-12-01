@@ -1,0 +1,13 @@
+{
+  "name": "io.github.cedced19.lamethodej",
+  "version": "0.0.2",
+  "displayName": "La méthode J",
+  "cordova": {
+    "platforms": [
+      "android"
+    ]
+  },
+  "dependencies": {
+    "cordova-android": "~5.1.1"
+  }
+}
